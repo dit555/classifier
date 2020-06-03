@@ -6,7 +6,7 @@
 using std::string;
 
 int main(){
-	string input = "_sets/test.txt";
+	string input = "_sets/cs_170_small17.txt";
 	DataSet a(input);
 	return 0;
 }
