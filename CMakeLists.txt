@@ -8,5 +8,7 @@ ADD_EXECUTABLE(classify
 	src/classify.cpp
 	header/DataSet.h
 	src/DataSet.cpp
+	header/Instance.h
+	src/Instance.cpp
 )
 
