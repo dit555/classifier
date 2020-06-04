@@ -89,7 +89,13 @@ DataSet::DataSet (string input){
 			addInstance(clas, spaces - 2, facts);
 			numInstances = tempStorage.size();
 			//cout << numInstances << endl;
+
 		}
+
+
+		//for (int j = 0; j < numInstances; j++)
+                //                tempStorage[j]->print();
+
 
 	}
 	else
@@ -101,11 +107,9 @@ DataSet::DataSet (string input){
 
 void DataSet::addInstance(int i, int n, double* fact){
 	Instance* a = new Instance(i, n, fact);
-	tempStorage.push(a);
+	tempStorage.push_back(a);
 }
 
 DataSet::~DataSet(){
-	while(!tempStorage.empty()){
-		tempStorage.pop();
-	}
+	
 }

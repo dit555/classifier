@@ -2,11 +2,12 @@
 #define _DATA_SET_
 
 #include <string>
-#include <stack>
+#include <vector>
 
 #include "Instance.h"
 
-using std::stack;
+
+using std::vector;
 using std::string;
 
 class DataSet {
@@ -17,10 +18,9 @@ public:
 	~DataSet();
 
 private:
-stack<Instance*> tempStorage;
+vector<Instance*> tempStorage;
 int numInstances;
 double* mean;
-Instance* Instances;
 
 };
 #endif
