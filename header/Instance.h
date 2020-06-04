@@ -3,7 +3,7 @@
 
 class Instance{
 public:
-	Instance (int t, int n, double *fact);
+	Instance (int t, int n, double* fact);
 	double getFactor(int n);
 	void setFactor(int n, double fact);
 	int getNumFactors();
