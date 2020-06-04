@@ -217,6 +217,13 @@ int DataSet::nearNeighbor(int fact, double val, int offset){
 }
 
 double DataSet::accuracy(int fact){
+	
+	cout << " using feature(s): {";
+	for (int i = 0; i < fact; i++)
+		cout << sol[i] << " ";
+
+	cout << "} accuracy is: ";
+	
 	double correct = 0;
 	double incorrect = 0;
 	for (int i = 0; i < fact; i++){
@@ -229,8 +236,10 @@ double DataSet::accuracy(int fact){
 				incorrect++;
 		}
 	}
-	//cout << "correct " << correct << " times out of " << correct + incorrect << endl;
-	return correct/(correct + incorrect) * 100;
+	
+	double ac = correct/(correct + incorrect) * 100;
+	cout << ac << "%" << endl;
+	return ac;
 }
 
 double DataSet::loo(int k){
@@ -238,7 +247,7 @@ double DataSet::loo(int k){
 	//cout << test << endl;
        	double correct = 0;
         double incorrect = 0;
-        for (int i = 0; i < numFactors; i++){
+	for (int i = 0; i < numFactors; i++){
                 //cout << "cake" << i << endl;
                 for (int j = 0; j < test; j++){
                         //cout << "poop" << j << endl;
@@ -252,9 +261,40 @@ double DataSet::loo(int k){
         return correct/(correct + incorrect) * 100;	
 
 }
-void DataSet::forwardSelection(){
-	
-	genTestSet(5);
+void DataSet::forwardSelection(int k){
+	genTestSet(k);
+	double maxTot = 0;
+	double maxCur = 0;
+	int index = 0;
+	bool dup = false;
+	while (maxTot >= maxCur && index < numFactors){
+		maxCur = 0;
+		dup = false;
+		for (int i = 0; i < numFactors; i++){
+			cout  << "i = " << i << endl;
+			for (int j = index; j < i; j++){
+				if (sol[j] = i)
+					dup = true;
+			}	
+			if (!dup){
+				int temp = 0;
+				sol[index] = i;
+				temp = accuracy(index);
+				if (temp > maxCur)
+					maxCur = temp;
+			}
+
+		}
+
+		index++;
+		if (maxCur > maxTot)
+			maxTot = maxCur;
+	}
+
+	cout << "best solution is made using features: {";
+        for (int i = 0; i < index; i++)
+                cout << sol[i] << " ";
+	cout << "} with accuracy: " << maxCur << "%" << endl;	
 
 }
 void DataSet::printAll(){
