@@ -14,7 +14,7 @@ int main(){
 	a.normalize();
 	//a.printAll();
 	//cout << a.nearNeighbor(2, -1.55064) << endl;
-	//cout << "Running nearest neighbor with LOO classification for for all features." << endl << "accuracy: " << a.loo(k) << "% when spliting training set into " << k << "." << endl;
-	a.forwardSelection(10);
+	cout << "Running nearest neighbor with LOO classification for for all features." << endl << "accuracy: " << a.loo(k) << "% when spliting training set into " << k << "." << endl << endl << endl;
+	a.forwardSelection(30);
 	return 0;
 }

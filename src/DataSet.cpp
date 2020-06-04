@@ -266,35 +266,54 @@ void DataSet::forwardSelection(int k){
 	double maxTot = 0;
 	double maxCur = 0;
 	int index = 0;
+	int maxIndex;
 	bool dup = false;
+	bool less = false;
 	while (maxTot >= maxCur && index < numFactors){
 		maxCur = 0;
-		dup = false;
 		for (int i = 0; i < numFactors; i++){
-			cout  << "i = " << i << endl;
-			for (int j = index; j < i; j++){
-				if (sol[j] = i)
+			dup = false;
+			for (int j = 0; j < index; j++){
+				sol[index] = i; 
+				if (sol[j] == sol[index]){
 					dup = true;
+					//cout << "excluded: " << sol[index] << "  when i = " << i << "  and j = " << j << endl;
+				}
 			}	
 			if (!dup){
 				int temp = 0;
 				sol[index] = i;
-				temp = accuracy(index);
-				if (temp > maxCur)
+				//cout << "index: " << index << "  ";
+				temp = accuracy(index + 1);
+				if (temp > maxCur){
 					maxCur = temp;
+					maxIndex = i;
+				}
 			}
-
+			//cout << "i :" << i << endl;
 		}
 
-		index++;
+		sol[index] = maxIndex;
 		if (maxCur > maxTot)
 			maxTot = maxCur;
+		else
+			less = true;
+		index++;
+		cout << endl;
+		cout << "best solution is this iteration is: {";
+	        for (int i = 0; i < index; i++)
+        	        cout << sol[i] << " ";
+        	
+		cout << "} with accuracy: " << maxCur << "%" << endl << endl;
+		if (less)
+			break;
+
 	}
 
 	cout << "best solution is made using features: {";
         for (int i = 0; i < index; i++)
                 cout << sol[i] << " ";
-	cout << "} with accuracy: " << maxCur << "%" << endl;	
+	cout << "} with accuracy: " << maxTot << "%" << endl;	
 
 }
 void DataSet::printAll(){
