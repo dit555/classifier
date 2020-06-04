@@ -47,7 +47,7 @@ int Instance::getNumFactors(){
 	return numFactors;
 }
 
-double* Instnace::getFacts(){
+double* Instance::getFacts(){
 	return factors;
 }
 

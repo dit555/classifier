@@ -33,6 +33,6 @@ double* mean2;
 double* stdev1;
 double* stdev2;
 
-Instance* testSet[10];
+Instance** testSet;
 };
 #endif

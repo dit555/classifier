@@ -184,9 +184,11 @@ void DataSet::normalize(){
 	}
 }
 
-void genTestSet(int i){
+void DataSet::genTestSet(int i){
+	testSet = new Instance*[i];
 	for(int j = 0; j < i; j++){
-		testSet[j] = tempStorage[j];
+		 Instance* test = new Instance(tempStorage[j]);
+		 testSet[j] = test;
 	}	
 }
 
