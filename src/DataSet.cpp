@@ -99,7 +99,8 @@ DataSet::DataSet (string input){
 		stdev2 = new double[numFactors];
 		sol = new int[numFactors];	
 		numTests = 0;
-
+		
+		cout << endl << "This data set has " << numFactors << " features and " << numInstances << " instances." << endl << endl;
 		//get num class 1 and 2
 		num1 = 0;
 		num2 = 0;
@@ -169,6 +170,8 @@ void DataSet::calcStdev(){
 void DataSet::normalize(){
 	calcMean();
 	calcStdev();
+	
+	cout << "Normalizing...            ";
 
 	//Z-normalization
 	for (int i = 0; i < numFactors; i++){
@@ -183,6 +186,8 @@ void DataSet::normalize(){
 			}
 		}
 	}
+
+	cout << "Done" << endl << endl;
 }
 
 void DataSet::genTestSet(int i){
@@ -262,6 +267,8 @@ double DataSet::loo(int k){
 
 }
 void DataSet::forwardSelection(int k){
+	cout << "Begining Forward selection... " << endl << endl;
+
 	genTestSet(k);
 	double maxTot = 0;
 	double maxCur = 0;
@@ -293,9 +300,11 @@ void DataSet::forwardSelection(int k){
 			//cout << "i :" << i << endl;
 		}
 
-		sol[index] = maxIndex;
-		if (maxCur > maxTot)
+		
+		if (maxCur > maxTot){
+			sol[index] = maxIndex;
 			maxTot = maxCur;
+		}
 		else
 			less = true;
 		index++;
@@ -309,9 +318,9 @@ void DataSet::forwardSelection(int k){
 			break;
 
 	}
-
+	cout << "-------------------------------------------" << endl << endl;
 	cout << "best solution is made using features: {";
-        for (int i = 0; i < index; i++)
+        for (int i = 0; i < index - 1; i++)
                 cout << sol[i] << " ";
 	cout << "} with accuracy: " << maxTot << "%" << endl;	
 

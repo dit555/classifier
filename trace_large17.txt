@@ -1,0 +1,141 @@
+Welcome to Dumitru Chiriac's feature search algorithm.
+
+enter the file path>> _sets/cs_170_large17.txt
+
+This data set has 39 features and 1000 instances.
+
+Normalizing...            Done
+
+
+Running nearest neighbor with LOO classification for for all features.
+Accuracy is 66.7179% when spliting training set into 5.
+
+
+Begining Forward selection... 
+
+ using feature(s): {0 } accuracy is: 50%
+ using feature(s): {1 } accuracy is: 70%
+ using feature(s): {2 } accuracy is: 50%
+ using feature(s): {3 } accuracy is: 56.6667%
+ using feature(s): {4 } accuracy is: 70%
+ using feature(s): {5 } accuracy is: 53.3333%
+ using feature(s): {6 } accuracy is: 50%
+ using feature(s): {7 } accuracy is: 70%
+ using feature(s): {8 } accuracy is: 73.3333%
+ using feature(s): {9 } accuracy is: 63.3333%
+ using feature(s): {10 } accuracy is: 63.3333%
+ using feature(s): {11 } accuracy is: 53.3333%
+ using feature(s): {12 } accuracy is: 60%
+ using feature(s): {13 } accuracy is: 63.3333%
+ using feature(s): {14 } accuracy is: 36.6667%
+ using feature(s): {15 } accuracy is: 50%
+ using feature(s): {16 } accuracy is: 56.6667%
+ using feature(s): {17 } accuracy is: 63.3333%
+ using feature(s): {18 } accuracy is: 60%
+ using feature(s): {19 } accuracy is: 70%
+ using feature(s): {20 } accuracy is: 50%
+ using feature(s): {21 } accuracy is: 60%
+ using feature(s): {22 } accuracy is: 56.6667%
+ using feature(s): {23 } accuracy is: 50%
+ using feature(s): {24 } accuracy is: 53.3333%
+ using feature(s): {25 } accuracy is: 53.3333%
+ using feature(s): {26 } accuracy is: 66.6667%
+ using feature(s): {27 } accuracy is: 60%
+ using feature(s): {28 } accuracy is: 66.6667%
+ using feature(s): {29 } accuracy is: 56.6667%
+ using feature(s): {30 } accuracy is: 56.6667%
+ using feature(s): {31 } accuracy is: 63.3333%
+ using feature(s): {32 } accuracy is: 60%
+ using feature(s): {33 } accuracy is: 56.6667%
+ using feature(s): {34 } accuracy is: 63.3333%
+ using feature(s): {35 } accuracy is: 63.3333%
+ using feature(s): {36 } accuracy is: 60%
+ using feature(s): {37 } accuracy is: 56.6667%
+ using feature(s): {38 } accuracy is: 66.6667%
+
+best solution is this iteration is: {8 } with accuracy: 73%
+
+ using feature(s): {8 0 } accuracy is: 61.6667%
+ using feature(s): {8 1 } accuracy is: 66.6667%
+ using feature(s): {8 2 } accuracy is: 63.3333%
+ using feature(s): {8 3 } accuracy is: 71.6667%
+ using feature(s): {8 4 } accuracy is: 65%
+ using feature(s): {8 5 } accuracy is: 65%
+ using feature(s): {8 6 } accuracy is: 56.6667%
+ using feature(s): {8 7 } accuracy is: 65%
+ using feature(s): {8 9 } accuracy is: 65%
+ using feature(s): {8 10 } accuracy is: 56.6667%
+ using feature(s): {8 11 } accuracy is: 63.3333%
+ using feature(s): {8 12 } accuracy is: 65%
+ using feature(s): {8 13 } accuracy is: 63.3333%
+ using feature(s): {8 14 } accuracy is: 66.6667%
+ using feature(s): {8 15 } accuracy is: 60%
+ using feature(s): {8 16 } accuracy is: 60%
+ using feature(s): {8 17 } accuracy is: 63.3333%
+ using feature(s): {8 18 } accuracy is: 61.6667%
+ using feature(s): {8 19 } accuracy is: 63.3333%
+ using feature(s): {8 20 } accuracy is: 68.3333%
+ using feature(s): {8 21 } accuracy is: 60%
+ using feature(s): {8 22 } accuracy is: 70%
+ using feature(s): {8 23 } accuracy is: 65%
+ using feature(s): {8 24 } accuracy is: 56.6667%
+ using feature(s): {8 25 } accuracy is: 66.6667%
+ using feature(s): {8 26 } accuracy is: 63.3333%
+ using feature(s): {8 27 } accuracy is: 68.3333%
+ using feature(s): {8 28 } accuracy is: 70%
+ using feature(s): {8 29 } accuracy is: 65%
+ using feature(s): {8 30 } accuracy is: 65%
+ using feature(s): {8 31 } accuracy is: 70%
+ using feature(s): {8 32 } accuracy is: 75%
+ using feature(s): {8 33 } accuracy is: 68.3333%
+ using feature(s): {8 34 } accuracy is: 63.3333%
+ using feature(s): {8 35 } accuracy is: 70%
+ using feature(s): {8 36 } accuracy is: 66.6667%
+ using feature(s): {8 37 } accuracy is: 70%
+ using feature(s): {8 38 } accuracy is: 63.3333%
+
+best solution is this iteration is: {8 32 } with accuracy: 75%
+
+ using feature(s): {8 32 0 } accuracy is: 74.4444%
+ using feature(s): {8 32 1 } accuracy is: 68.8889%
+ using feature(s): {8 32 2 } accuracy is: 74.4444%
+ using feature(s): {8 32 3 } accuracy is: 72.2222%
+ using feature(s): {8 32 4 } accuracy is: 68.8889%
+ using feature(s): {8 32 5 } accuracy is: 71.1111%
+ using feature(s): {8 32 6 } accuracy is: 66.6667%
+ using feature(s): {8 32 7 } accuracy is: 62.2222%
+ using feature(s): {8 32 9 } accuracy is: 68.8889%
+ using feature(s): {8 32 10 } accuracy is: 70%
+ using feature(s): {8 32 11 } accuracy is: 70%
+ using feature(s): {8 32 12 } accuracy is: 66.6667%
+ using feature(s): {8 32 13 } accuracy is: 68.8889%
+ using feature(s): {8 32 14 } accuracy is: 67.7778%
+ using feature(s): {8 32 15 } accuracy is: 74.4444%
+ using feature(s): {8 32 16 } accuracy is: 75.5556%
+ using feature(s): {8 32 17 } accuracy is: 70%
+ using feature(s): {8 32 18 } accuracy is: 66.6667%
+ using feature(s): {8 32 19 } accuracy is: 70%
+ using feature(s): {8 32 20 } accuracy is: 68.8889%
+ using feature(s): {8 32 21 } accuracy is: 68.8889%
+ using feature(s): {8 32 22 } accuracy is: 68.8889%
+ using feature(s): {8 32 23 } accuracy is: 70%
+ using feature(s): {8 32 24 } accuracy is: 67.7778%
+ using feature(s): {8 32 25 } accuracy is: 70%
+ using feature(s): {8 32 26 } accuracy is: 67.7778%
+ using feature(s): {8 32 27 } accuracy is: 71.1111%
+ using feature(s): {8 32 28 } accuracy is: 70%
+ using feature(s): {8 32 29 } accuracy is: 65.5556%
+ using feature(s): {8 32 30 } accuracy is: 73.3333%
+ using feature(s): {8 32 31 } accuracy is: 67.7778%
+ using feature(s): {8 32 33 } accuracy is: 68.8889%
+ using feature(s): {8 32 34 } accuracy is: 74.4444%
+ using feature(s): {8 32 35 } accuracy is: 66.6667%
+ using feature(s): {8 32 36 } accuracy is: 67.7778%
+ using feature(s): {8 32 37 } accuracy is: 64.4444%
+ using feature(s): {8 32 38 } accuracy is: 73.3333%
+
+best solution is this iteration is: {8 32 38 } with accuracy: 75%
+
+-------------------------------------------
+
+best solution is made using features: {8 32 } with accuracy: 75%

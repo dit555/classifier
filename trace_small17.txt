@@ -1,0 +1,41 @@
+Welcome to Dumitru Chiriac's feature search algorithm.
+
+enter the file path>> _sets/cs_170_small17.txt
+
+This data set has 9 features and 100 instances.
+
+Normalizing...            Done
+
+
+Running nearest neighbor with LOO classification for for all features.
+Accuracy is 61.6667% when spliting training set into 5.
+
+
+Begining Forward selection... 
+
+ using feature(s): {0 } accuracy is: 56.6667%
+ using feature(s): {1 } accuracy is: 60%
+ using feature(s): {2 } accuracy is: 73.3333%
+ using feature(s): {3 } accuracy is: 70%
+ using feature(s): {4 } accuracy is: 73.3333%
+ using feature(s): {5 } accuracy is: 66.6667%
+ using feature(s): {6 } accuracy is: 56.6667%
+ using feature(s): {7 } accuracy is: 60%
+ using feature(s): {8 } accuracy is: 63.3333%
+
+best solution is this iteration is: {2 } with accuracy: 73%
+
+ using feature(s): {2 0 } accuracy is: 68.3333%
+ using feature(s): {2 1 } accuracy is: 70%
+ using feature(s): {2 3 } accuracy is: 65%
+ using feature(s): {2 4 } accuracy is: 66.6667%
+ using feature(s): {2 5 } accuracy is: 65%
+ using feature(s): {2 6 } accuracy is: 70%
+ using feature(s): {2 7 } accuracy is: 70%
+ using feature(s): {2 8 } accuracy is: 70%
+
+best solution is this iteration is: {2 8 } with accuracy: 70%
+
+-------------------------------------------
+
+best solution is made using features: {2 } with accuracy: 73%
