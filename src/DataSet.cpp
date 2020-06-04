@@ -97,7 +97,8 @@ DataSet::DataSet (string input){
 		mean2 = new double[numFactors];
 		stdev1 = new double[numFactors];
 		stdev2 = new double[numFactors];
-			
+		sol = new int[numFactors];	
+		numTests = 0;
 
 		//get num class 1 and 2
 		num1 = 0;
@@ -186,6 +187,7 @@ void DataSet::normalize(){
 
 void DataSet::genTestSet(int i){
 	testSet = new Instance*[i];
+	numTests = i;
 	for(int j = 0; j < i; j++){
 		 Instance* test = new Instance(tempStorage[j]);
 		 testSet[j] = test;
@@ -196,7 +198,7 @@ int DataSet::nearNeighbor(int fact, double val){
 	double pos = val;
 	double dist = 0.01;
 	double r = 1;
-	cout << val << endl;
+	//cout << val << endl;
 	while(1){
 		double upper = pos + dist * r;
                 double lower = pos - dist * r;
@@ -214,11 +216,30 @@ int DataSet::nearNeighbor(int fact, double val){
 	return 0;
 }
 
-double accuracy(int fact){
-	
-
+double DataSet::accuracy(int fact){
+	double correct = 0;
+	double incorrect = 0;
+	for (int i = 0; i < fact; i++){
+		//cout << "cake" << numTests << endl;
+		for (int j = 0; j < numTests; j++){
+			//cout << "poop" << j << endl;
+			if(testSet[j]->getClass() == nearNeighbor(sol[i], testSet[j]->getFactor(i)))
+					correct++;
+			else
+				incorrect++;
+		}
+	}
+	cout << "correct " << correct << " times out of " << correct + incorrect << endl;
+	return correct/(correct + incorrect);
 }
 
+
+void DataSet::forwardSelection(){
+	sol[0] = 5; sol[1] = 3; sol[2] = 7;
+	genTestSet(10);
+	accuracy(3);
+
+}
 void DataSet::printAll(){
 	for (int i = 0; i < numInstances; i++)
 		tempStorage[i]->print();
@@ -229,4 +250,5 @@ DataSet::~DataSet(){
 	delete[] mean2;
 	delete[] stdev1;
 	delete[] stdev2;
+	delete[] sol;
 }

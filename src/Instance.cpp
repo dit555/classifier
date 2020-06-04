@@ -20,7 +20,7 @@ Instance::Instance(Instance* parent){
 
 	srand(time(NULL));
 	for (int i = 0; i < numFactors;i++){
-		double r = (double)(rand() % 11 - 5) / 100;
+		double r = (double)(rand() % 21 - 10) / 100;
 		factors[i] = parent->getFactor(i) + r;
 	}
 

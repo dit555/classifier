@@ -20,6 +20,7 @@ public:
 	void genTestSet(int i);
 	int nearNeighbor(int fact, double val);
 	double accuracy(int fact);
+	void forwardSelection();
 
 	void printAll();
 	~DataSet();
@@ -36,5 +37,7 @@ double* stdev1;
 double* stdev2;
 
 Instance** testSet;
+int numTests;
+int* sol;
 };
 #endif
