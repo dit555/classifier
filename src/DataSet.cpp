@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#include <math.h>
+#include <cmath>
 
 using std::string;
 using std::stod;
@@ -121,17 +121,30 @@ void DataSet::calcMean(){
 
 	for (int i = 0; i < numFactors; i++){
 		mean[i] /= numInstances;
-		cout << mean[i] << endl;
+		//cout << mean[i] << endl;
 	}
 
 }
 
 void DataSet::calcStdev(){
+	double variance = 0;
+	double dev;
+	for (int j = 0; j < numFactors; j++){
+		variance = 0;
+		for (int i = 0; i < numInstances; i ++){
+			variance += pow(tempStorage[i]->getFactor(j) - mean[j], 2);
+		}
+		variance /= numInstances;
+		stdev[j] = sqrt(variance);
+	}
 
+	for (int i = 0; i < numFactors; i++)
+		cout << stdev[i] << endl;
 }
 
 void DataSet::normalize(){
 	calcMean();
+	calcStdev();
 }
 
 
