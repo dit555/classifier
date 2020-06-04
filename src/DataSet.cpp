@@ -10,6 +10,7 @@ using std::cout;
 using std::endl;
 
 using std::fstream;
+using std::getline;
 
 
 #include "../header/DataSet.h"
@@ -18,20 +19,21 @@ using std::fstream;
 DataSet::DataSet (string input){
 	fstream file;
 	file.open(input, std::ios::in);
+	int spaces = 0;
+	numInstances = 0;
 	if (file.is_open()){
 		string g;
 		string::size_type sz;
 		while(getline(file, g)){
 			int i = 0;
-			int spaces = 0;
+			spaces = 0;
 			//find spaces in line
 			while (i < g.size()){
-				if (g[i] == ' ')
+				if (g[i] == ' ' || (g[i] == '-' && g[i - 1] == ' '))
 					spaces++;
 				i++;
 			}
 			spaces = spaces / 2;
-
 			i = 0;
 			double input;
 			double exp;
@@ -39,8 +41,8 @@ DataSet::DataSet (string input){
 			int index = 0;
 			string temp;
 
-			double* facts = new double[spaces - 1];
-
+			double* facts = new double[spaces - 2];
+			int clas = 0;
 			//interpret lines			
 			while (i < g.size()){
 				if (g[i] != ' '){
@@ -63,16 +65,16 @@ DataSet::DataSet (string input){
 					
 					i += 3;
 				
-					int clas = 0;
+					
 	                                if(index == 0){            
         	                                clas = (int)value;
-						cout << clas << "  ";
+						//cout << clas << "  ";
                 	                        index++;
 					}
 					else if(index <= spaces - 2){
                                         	//cout << "value: " << value << "  " << "index: " << index << "  ";
                                         	facts[index - 1] = value;
-                                        	cout << facts[index - 1] << "  ";
+                                        	//cout << facts[index - 1] << "  ";
 						//cout << "INDEX: " << index - 1 << endl;
                                         	index++;
                                 	}
@@ -81,17 +83,19 @@ DataSet::DataSet (string input){
 				}
 				
 				i++;
+				
 			}
-			cout << "poop" <<endl;
-			delete[] facts;
 			
-
+			addInstance(clas, spaces - 2, facts);
+			numInstances = tempStorage.size();
+			//cout << numInstances << endl;
 		}
 
 	}
 	else
 		cout << "file failed to open" << endl;
-
+	
+	
 	file.close();
 }
 
@@ -102,7 +106,6 @@ void DataSet::addInstance(int i, int n, double* fact){
 
 DataSet::~DataSet(){
 	while(!tempStorage.empty()){
-		delete[] tempStorage.top();
 		tempStorage.pop();
 	}
 }

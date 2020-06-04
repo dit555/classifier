@@ -4,6 +4,7 @@
 class Instance{
 public:
 	Instance (int t, int n, double* fact);
+	void print();
 	double getFactor(int n);
 	void setFactor(int n, double fact);
 	int getNumFactors();
