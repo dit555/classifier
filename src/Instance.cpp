@@ -1,4 +1,6 @@
 #include <iostream>
+#include <stdlib.h>
+#include <time.h>
 
 #include "../header/Instance.h"
 
@@ -15,13 +17,17 @@ Instance::Instance(Instance* parent){
 	type = parent->getClass();
 	numFactors = parent->getNumFactors();
 	factors = new double[numFactors];
-	
+
+	srand(time(NULL));
 	for (int i = 0; i < numFactors;i++){
-		factors[i] = parent->getFactor(i);
+		double r = (double)(rand() % 11 - 5) / 100;
+		factors[i] = parent->getFactor(i) + r;
 	}
 
-	parent->print();
-	print();
+	//parent->print();
+	//print();
+
+	
 }
 
 void Instance::print(){
