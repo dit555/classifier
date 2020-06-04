@@ -86,15 +86,15 @@ DataSet::DataSet (string input){
 				
 			}
 			
-			addInstance(clas, spaces - 2, facts);
-			numInstances = tempStorage.size();
-			//cout << numInstances << endl;
+			numFactors = spaces - 2;
+			addInstance(clas, numFactors, facts);
+			
 
 		}
-
-
-		//for (int j = 0; j < numInstances; j++)
-                //                tempStorage[j]->print();
+		
+		numInstances = tempStorage.size();
+		mean = new double[numFactors];
+		stdev = new double[numFactors];
 
 
 	}
@@ -110,6 +110,33 @@ void DataSet::addInstance(int i, int n, double* fact){
 	tempStorage.push_back(a);
 }
 
+void DataSet::calcMean(){
+
+	for (int i = 0; i < numFactors; i++){
+		mean[i] = 0;
+		for (int j = 0; j < numInstances; j++){
+			mean[i] += tempStorage[j]->getFactor(i);
+		}
+	}
+
+	for (int i = 0; i < numFactors; i++){
+		mean[i] /= numInstances;
+		cout << mean[i] << endl;
+	}
+
+}
+
+void DataSet::calcStdev(){
+
+}
+
+void DataSet::normalize(){
+	calcMean();
+}
+
+
+
 DataSet::~DataSet(){
-	
+	delete[] mean;
+	delete[] stdev;
 }

@@ -14,13 +14,18 @@ class DataSet {
 public:
 	DataSet(string inputFile);
 	void addInstance(int i,int n, double* fact);
+	void calcMean();
+	void calcStdev();
+	void normalize();
 	
 	~DataSet();
 
 private:
 vector<Instance*> tempStorage;
 int numInstances;
+int numFactors;
 double* mean;
+double* stdev;
 
 };
 #endif
