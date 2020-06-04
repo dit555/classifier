@@ -138,13 +138,32 @@ void DataSet::calcStdev(){
 		stdev[j] = sqrt(variance);
 	}
 
-	for (int i = 0; i < numFactors; i++)
-		cout << stdev[i] << endl;
+	//for (int i = 0; i < numFactors; i++)
+	//	cout << stdev[i] << endl;
 }
 
 void DataSet::normalize(){
 	calcMean();
 	calcStdev();
+
+	//Z-normalization
+	for (int i = 0; i < numFactors; i++){
+		for(int j = 0; j < numInstances; j++){
+			double temp = (tempStorage[j]->getFactor(i) - mean[i])/stdev[i];
+			tempStorage[j]->setFactor(i, temp);
+		}
+
+	}
+	
+	//test normaliation
+	/*calcMean();
+	calcStdev();
+
+	for (int i = 0; i < numFactors; i++){
+		cout << "mean: " << mean[i] << endl;
+		cout << "stdev " << stdev[i] << endl;
+	}
+	*/
 }
 
 

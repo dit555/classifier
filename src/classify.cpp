@@ -6,7 +6,7 @@
 using std::string;
 
 int main(){
-	string input = "_sets/cs_170_large17.txt";
+	string input = "_sets/cs_170_small17.txt";
 	DataSet a(input);
 	a.normalize();
 	return 0;
