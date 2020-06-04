@@ -18,6 +18,8 @@ public:
 	void calcStdev();
 	void normalize();
 	void genTestSet(int i);
+	int nearNeighbor(int fact, double val);
+	double accuracy(int fact);
 
 	void printAll();
 	~DataSet();

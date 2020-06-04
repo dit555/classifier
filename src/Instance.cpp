@@ -24,8 +24,8 @@ Instance::Instance(Instance* parent){
 		factors[i] = parent->getFactor(i) + r;
 	}
 
-	//parent->print();
-	//print();
+//	parent->print();
+//	print();
 
 	
 }

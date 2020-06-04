@@ -192,6 +192,33 @@ void DataSet::genTestSet(int i){
 	}	
 }
 
+int DataSet::nearNeighbor(int fact, double val){
+	double pos = val;
+	double dist = 0.01;
+	double r = 1;
+	cout << val << endl;
+	while(1){
+		double upper = pos + dist * r;
+                double lower = pos - dist * r;
+
+		for (int i = 0; i < numInstances; i++){
+			if (upper >= tempStorage[i]->getFactor(fact) && lower <= tempStorage[i]->getFactor(fact))
+				return tempStorage[i]->getClass();
+		}
+		//cout << "testing:   upper:" << upper << "   lower: " << lower << endl;
+		r++;
+		if (r > 300)
+			break;
+	}
+
+	return 0;
+}
+
+double accuracy(int fact){
+	
+
+}
+
 void DataSet::printAll(){
 	for (int i = 0; i < numInstances; i++)
 		tempStorage[i]->print();
