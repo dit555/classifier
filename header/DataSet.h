@@ -20,6 +20,7 @@ public:
 	void genTestSet(int i);
 	int nearNeighbor(int fact, double val);
 	double accuracy(int fact);
+	double loo(int k); //leave one out cross validation, where we wplit the set into k sections and choose k= 1 for cross validation
 	void forwardSelection();
 
 	void printAll();

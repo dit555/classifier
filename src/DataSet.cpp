@@ -229,15 +229,33 @@ double DataSet::accuracy(int fact){
 				incorrect++;
 		}
 	}
-	cout << "correct " << correct << " times out of " << correct + incorrect << endl;
-	return correct/(correct + incorrect);
+	//cout << "correct " << correct << " times out of " << correct + incorrect << endl;
+	return correct/(correct + incorrect) * 100;
 }
 
+double DataSet::loo(int k){
+	int test = numInstances/k;
+	//cout << test << endl;
+       	double correct = 0;
+        double incorrect = 0;
+        for (int i = 0; i < numFactors; i++){
+                //cout << "cake" << i << endl;
+                for (int j = test; j < numInstances; j++){
+                        //cout << "poop" << j << endl;
+                        if(tempStorage[j]->getClass() == nearNeighbor(i, tempStorage[j]->getFactor(i)))
+                                        correct++;
+                        else
+                                incorrect++;
+                }
+        }
+        //cout << "correct " << correct << " times out of " << correct + incorrect << endl;
+        return correct/(correct + incorrect) * 100;	
 
+}
 void DataSet::forwardSelection(){
 	sol[0] = 5; sol[1] = 3; sol[2] = 7;
-	genTestSet(10);
-	accuracy(3);
+	genTestSet(5);
+	cout << accuracy(3) * 100 << "%" <<  endl;
 
 }
 void DataSet::printAll(){
