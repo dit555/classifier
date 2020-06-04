@@ -17,6 +17,8 @@ public:
 	void calcMean();
 	void calcStdev();
 	void normalize();
+	void genTestSet(int i);
+
 	void printAll();
 	~DataSet();
 
@@ -31,5 +33,6 @@ double* mean2;
 double* stdev1;
 double* stdev2;
 
+Instance* testSet[10];
 };
 #endif

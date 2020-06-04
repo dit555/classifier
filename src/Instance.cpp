@@ -12,7 +12,16 @@ Instance::Instance (int t, int n, double *fact){
 }
 
 Instance::Instance(Instance* parent){
+	type = parent->getClass();
+	numFactors = parent->getNumFactors();
+	factors = new double[numFactors];
 	
+	for (int i = 0; i < numFactors;i++){
+		factors[i] = parent->getFactor(i);
+	}
+
+	parent->print();
+	print();
 }
 
 void Instance::print(){
@@ -36,6 +45,10 @@ void Instance::setFactor(int n, double fact){
 
 int Instance::getNumFactors(){
 	return numFactors;
+}
+
+double* Instnace::getFacts(){
+	return factors;
 }
 
 Instance::~Instance(){

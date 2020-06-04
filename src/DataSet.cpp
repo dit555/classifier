@@ -97,7 +97,8 @@ DataSet::DataSet (string input){
 		mean2 = new double[numFactors];
 		stdev1 = new double[numFactors];
 		stdev2 = new double[numFactors];
-		
+			
+
 		//get num class 1 and 2
 		num1 = 0;
 		num2 = 0;
@@ -180,26 +181,13 @@ void DataSet::normalize(){
                         	tempStorage[j]->setFactor(i, temp2);
 			}
 		}
-
 	}
+}
 
-	
-	//test normaliation
-	/*
-	calcMean();
-	calcStdev();
-
-	for (int i = 0; i < numFactors; i++){
-		
-		cout << "mean1: " << mean1[i] << endl;
-		cout << "stdev1: " << stdev1[i] << endl;
-		
-		cout << "mean2: " << mean2[i] << endl;
-                cout << "stdev2 " << stdev2[i] << endl;
-		
-	}
-	*/
-	
+void genTestSet(int i){
+	for(int j = 0; j < i; j++){
+		testSet[j] = tempStorage[j];
+	}	
 }
 
 void DataSet::printAll(){

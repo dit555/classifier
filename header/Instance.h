@@ -10,6 +10,7 @@ public:
 	double getFactor(int n);
 	void setFactor(int n, double fact);
 	int getNumFactors();
+	double* getFacts();
 	~Instance();
 
 private:
