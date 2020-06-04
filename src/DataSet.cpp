@@ -194,7 +194,7 @@ void DataSet::genTestSet(int i){
 	}	
 }
 
-int DataSet::nearNeighbor(int fact, double val){
+int DataSet::nearNeighbor(int fact, double val, int offset){
 	double pos = val;
 	double dist = 0.01;
 	double r = 1;
@@ -203,7 +203,7 @@ int DataSet::nearNeighbor(int fact, double val){
 		double upper = pos + dist * r;
                 double lower = pos - dist * r;
 
-		for (int i = 0; i < numInstances; i++){
+		for (int i = offset; i < numInstances; i++){
 			if (upper >= tempStorage[i]->getFactor(fact) && lower <= tempStorage[i]->getFactor(fact))
 				return tempStorage[i]->getClass();
 		}
@@ -223,7 +223,7 @@ double DataSet::accuracy(int fact){
 		//cout << "cake" << numTests << endl;
 		for (int j = 0; j < numTests; j++){
 			//cout << "poop" << j << endl;
-			if(testSet[j]->getClass() == nearNeighbor(sol[i], testSet[j]->getFactor(i)))
+			if(testSet[j]->getClass() == nearNeighbor(sol[i], testSet[j]->getFactor(i), 0))
 					correct++;
 			else
 				incorrect++;
@@ -240,9 +240,9 @@ double DataSet::loo(int k){
         double incorrect = 0;
         for (int i = 0; i < numFactors; i++){
                 //cout << "cake" << i << endl;
-                for (int j = test; j < numInstances; j++){
+                for (int j = 0; j < test; j++){
                         //cout << "poop" << j << endl;
-                        if(tempStorage[j]->getClass() == nearNeighbor(i, tempStorage[j]->getFactor(i)))
+                        if(tempStorage[j]->getClass() == nearNeighbor(i, tempStorage[j]->getFactor(i), test))
                                         correct++;
                         else
                                 incorrect++;
@@ -253,9 +253,8 @@ double DataSet::loo(int k){
 
 }
 void DataSet::forwardSelection(){
-	sol[0] = 5; sol[1] = 3; sol[2] = 7;
+	
 	genTestSet(5);
-	cout << accuracy(3) * 100 << "%" <<  endl;
 
 }
 void DataSet::printAll(){
