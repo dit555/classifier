@@ -17,15 +17,19 @@ public:
 	void calcMean();
 	void calcStdev();
 	void normalize();
-	
+	void printAll();
 	~DataSet();
 
 private:
 vector<Instance*> tempStorage;
 int numInstances;
 int numFactors;
-double* mean;
-double* stdev;
+int num1;
+int num2;
+double* mean1;
+double* mean2;
+double* stdev1;
+double* stdev2;
 
 };
 #endif

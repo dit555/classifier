@@ -20,6 +20,10 @@ void Instance::print(){
 	cout << endl;
 }
 
+int Instance::getClass(){
+	return type;
+}
+
 double Instance::getFactor(int n){
 	return factors[n];
 }
