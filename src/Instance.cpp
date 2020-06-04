@@ -8,9 +8,11 @@ using std::endl;
 Instance::Instance (int t, int n, double *fact){
 	type = t;
 	numFactors = n;
-	double *f = new double[n];
-	f = fact;
 	factors = fact;
+}
+
+Instance::Instance(Instance* parent){
+	
 }
 
 void Instance::print(){

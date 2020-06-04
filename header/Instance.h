@@ -4,6 +4,7 @@
 class Instance{
 public:
 	Instance (int t, int n, double* fact);
+	Instance (Instance* parent);
 	void print();
 	int getClass();
 	double getFactor(int n);
